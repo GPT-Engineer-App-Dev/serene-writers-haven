@@ -8,6 +8,11 @@ const Index = () => {
     { title: "Post Title 2", content: "This is a summary of the second blog post..." }
   ]);
   const [newPostTitle, setNewPostTitle] = useState("");
+
+  const handleDeletePost = (index) => {
+    const updatedPosts = posts.filter((_, i) => i !== index);
+    setPosts(updatedPosts);
+  };
   const [newPostContent, setNewPostContent] = useState("");
 
   const handleAddPost = () => {
@@ -62,8 +67,13 @@ const Index = () => {
             <VStack spacing={4} mt={4} align="start">
               {posts.map((post, index) => (
                 <Box key={index} p={5} shadow="md" borderWidth="1px" width="100%">
-                  <Heading fontSize="xl">{post.title}</Heading>
-                  <Text mt={4}>{post.content}</Text>
+                  <Flex justify="space-between" align="center">
+                    <Box>
+                      <Heading fontSize="xl">{post.title}</Heading>
+                      <Text mt={4}>{post.content}</Text>
+                    </Box>
+                    <Button colorScheme="red" onClick={() => handleDeletePost(index)}>Delete</Button>
+                  </Flex>
                 </Box>
               ))}
             </VStack>

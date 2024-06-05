@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Container, Flex, Heading, Text, VStack, HStack, Link, Spacer, Input, Textarea, Button } from "@chakra-ui/react";
+import { Box, Container, Flex, Heading, Text, VStack, HStack, Link, Spacer, Input, Textarea, Button, useColorModeValue } from "@chakra-ui/react";
 import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 
 const Index = () => {
@@ -20,7 +20,7 @@ const Index = () => {
   return (
     <Box>
       {/* Navigation Bar */}
-      <Box as="nav" bg="brand.800" color="white" py={4}>
+      <Box as="nav" bg={useColorModeValue("brand.800", "gray.800")} color="white" py={4}>
         <Container maxW="container.lg">
           <Flex align="center">
             <Heading as="h1" size="lg">My Blog</Heading>
@@ -35,7 +35,7 @@ const Index = () => {
       </Box>
 
       {/* Main Content Area */}
-      <Container maxW="container.lg" py={10}>
+      <Container maxW="container.lg" py={10} color={useColorModeValue("black", "white")}>
         <VStack spacing={8} align="start">
           <Box>
             <Heading as="h2" size="xl">Welcome to My Blog</Heading>
@@ -72,7 +72,7 @@ const Index = () => {
       </Container>
 
       {/* Footer */}
-      <Box as="footer" bg="brand.800" color="white" py={4} mt={10}>
+      <Box as="footer" bg={useColorModeValue("brand.800", "gray.800")} color="white" py={4} mt={10}>
         <Container maxW="container.lg">
           <Flex align="center">
             <Text>&copy; {new Date().getFullYear()} My Blog. All rights reserved.</Text>
